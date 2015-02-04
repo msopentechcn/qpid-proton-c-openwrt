@@ -10,20 +10,29 @@ This tutorial will guide you to build a OpenWRT migration for Qpid-proton-c core
 ###Setup OpenWRT BuildRoot environment:
 
 In your linux host, setup the OpenWRT cross-compile environment 
-With [this](http://wiki.openwrt.org/doc/howto/buildroot.exigence) tutorial.
+With [This](http://wiki.openwrt.org/doc/howto/buildroot.exigence) tutorial.
 
 
 ###Install OpenWRT cross-compile SDK and required libraries for qpid-proton:
+Config building options:
 
 	$cd openwrt/trunk
 	$make menuconfig
-	-- check build SDK
-	-- select modules: library->SSL
-	-- select modules: library->libuuid
-	save and exit
-	$make V=s  -- takes about 2hours 
 
-Add short url for convenience:
+![menuconfig] (./menuconfig.png)
+
+In the menuconfig, choose your build platform, and select *build the OpenWrt SDK*,
+also select 2 modules needed by qpid-proton: *library->SSL, library->libuuid* 
+
+Save and exit.
+
+Begin making your SDK:
+
+	$make V=s 
+
+This may take about 2 hours to compile a SDK evnironment.
+
+After compiling finished, add short url for convenience:
 
 	$ln -s ~/openwrt/trunk/bin/ramips/OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ~/sdk
 	$ln -s ~/sdk/staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2 ~/tc
