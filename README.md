@@ -29,6 +29,8 @@ Add short url for convenience:
 	$ln -s ~/sdk/staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2 ~/tc
 	$ln -s ~/sdk/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2 ~/target
 
+> Note: The directory name above may various by the building platform you selected. In this tutorial, we use [WRTNode](http://wrtnode.com/) as an example.
+
 Copy required library to toolchain directory:
 
 	$cd ~/target/usr/lib
